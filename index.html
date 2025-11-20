@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire</title>
+    <title>Pauline & Arthur</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            color: #5d5d5d;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,38 +22,53 @@
         }
         form {
             background: #ffffff;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2.5em;
+            /* border: 1px solid #e0e0e0; */
             width: 100%;
-            max-width: 450px;
+            max-width: 650px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
-        form div, form fieldset {
-            margin-bottom: 1rem;
+        .form-title {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 29pt);
+            font-weight: 400;
+            margin-bottom: 0;
+            font-family: 'Playfair Display', serif;
         }
-        label {
+        form > div, form > fieldset {
+            margin-bottom: 0;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        label,
+        legend {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
+            font-weight: 400;
+            font-size: 12pt;
         }
         input[type="text"],
         textarea {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #ccc;
-            border-radius: 4px;
             box-sizing: border-box;
             font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+        }
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: 1px solid #ab8f7a;
+            border-color: #ab8f7a;
         }
         fieldset {
             border: none;
             padding: 0;
-        }
-        legend {
-            font-weight: 600;
-            padding: 0;
-            margin-bottom: 0.5rem;
+            grid-column: 1 / -1;
         }
         fieldset div {
             display: flex;
@@ -58,50 +77,53 @@
         }
         input[type="radio"] {
             margin-right: 0.5rem;
+            accent-color: #ab8f7a;
         }
         button {
             width: 100%;
-            padding: 0.75rem;
-            border: none;
-            background-color: #007bff;
+            padding: 0.85rem;
+            border: 1px solid #ab8f7a;
+            background-color: #ab8f7a;
             color: white;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Open Sans', sans-serif;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #ffffff;
+            color: #ab8f7a;
         }
     </style>
 </head>
 <body>
-    <form action="https://rsvp.pauline-et-arthur.fr/submit" method="POST">
+    <form action="https://rsvp-post.pauline-et-arthur.fr/submit" method="POST">
+        <h1 class="form-title">Réponse souhaitée avant le 1er mars</h1>
         <div>
             <label for="fullname">Nom et prénom :</label>
             <input type="text" id="fullname" name="fullname" required>
         </div>
         <div>
-            <label for="partner_fullname">Nom et prénom de votre bien aimé(e) :</label>
+            <label for="partner_fullname">Nom et prénom de votre moitié :</label>
             <input type="text" id="partner_fullname" name="partner_fullname">
         </div>
         <fieldset>
-            <legend>Serez-vous présent le 2 mai ?</legend>
+            <legend>Serez-vous des nôtres le 2 mai 2026 ?</legend>
             <div>
                 <input type="radio" id="present_oui" name="presence" value="oui" required>
-                <label for="present_oui">Oui</label>
+                <label for="present_oui">Oui, avec joie !</label>
             </div>
             <div>
                 <input type="radio" id="present_non" name="presence" value="non">
-                <label for="present_non">Non</label>
+                <label for="present_non">Non, à notre grand regret.</label>
             </div>
         </fieldset>
-        <div>
-            <label for="comment">Un commentaire, un dernier message, un mot doux ?</label>
+        <div class="full-width">
+            <label for="comment">Un commentaire, un mot doux ?</label>
             <textarea id="comment" name="comment" rows="4"></textarea>
         </div>
-        <div>
+        <div class="full-width">
             <button type="submit">Envoyer</button>
         </div>
         <input type="hidden" name="_next" value="https://www.pauline-et-arthur/thanks.html">
