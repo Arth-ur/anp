@@ -4,98 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pauline & Arthur</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #ffffff;
-            color: #5d5d5d;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            min-height: 100vh;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        form {
-            background: #ffffff;
-            padding: 2.5em;
-            /* border: 1px solid #e0e0e0; */
-            width: 100%;
-            max-width: 650px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        .form-title {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 29pt);
-            font-weight: 400;
-            margin-bottom: 0;
-            font-family: 'Playfair Display', serif;
-        }
-        form > div, form > fieldset {
-            margin-bottom: 0;
-        }
-        .full-width {
-            grid-column: 1 / -1;
-        }
-        label,
-        legend {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-            font-size: 12pt;
-        }
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            font-size: 1rem;
-            font-family: 'Open Sans', sans-serif;
-        }
-        input[type="text"]:focus,
-        textarea:focus {
-            outline: 1px solid #ab8f7a;
-            border-color: #ab8f7a;
-        }
-        fieldset {
-            border: none;
-            padding: 0;
-            grid-column: 1 / -1;
-        }
-        fieldset div {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        input[type="radio"] {
-            margin-right: 0.5rem;
-            accent-color: #ab8f7a;
-        }
-        button {
-            width: 100%;
-            padding: 0.85rem;
-            border: 1px solid #ab8f7a;
-            background-color: #ab8f7a;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            font-family: 'Open Sans', sans-serif;
-        }
-        button:hover {
-            background-color: #ffffff;
-            color: #ab8f7a;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <form action="https://rsvp-post.pauline-et-arthur.fr/submit" method="POST">
@@ -126,9 +35,36 @@
         <div class="full-width">
             <button type="submit">Envoyer</button>
         </div>
-        <input type="hidden" name="_next" value="https://www.pauline-et-arthur/thanks.html">
+        <input type="hidden" name="_next" value="https://rsvp.pauline-et-arthur.fr/thanks.html?">
+        <input type="hidden" name="_captcha" value="false">
+        </form>
         <input type="hidden" name="_captcha" value="false">
     </form>
+
+    <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        const fullname = document.getElementById('fullname').value;
+        const partnerFullname = document.getElementById('partner_fullname').value;
+        const presence = document.querySelector('input[name="presence"]:checked')?.value || '';
+        const nextInput = document.querySelector('input[name="_next"]');
+
+        const baseUrl = "https://rsvp.pauline-et-arthur.fr/thanks.html?";
+        const params = new URLSearchParams();
+
+        if (fullname) {
+        params.append('fullname', fullname);
+        }
+        if (partnerFullname) {
+        params.append('partner_fullname', partnerFullname);
+        }
+        if (presence) {
+        params.append('presence', presence);
+        }
+
+        nextInput.value = baseUrl + params.toString();
+    });
+    </script>
 
 </body>
 </html>

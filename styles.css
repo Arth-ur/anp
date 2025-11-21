@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ffffff;
+    color: #5d5d5d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+}
+form {
+    background: #ffffff;
+    padding: 2.5em;
+    /* border: 1px solid #e0e0e0; */
+    width: 100%;
+    max-width: 650px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.form-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 29pt);
+    font-weight: 400;
+    margin-bottom: 0;
+    font-family: 'Playfair Display', serif;
+}
+form > div, form > fieldset {
+    margin-bottom: 0;
+}
+.full-width {
+    grid-column: 1 / -1;
+}
+label,
+legend {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    font-size: 12pt;
+}
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+input[type="text"]:focus,
+textarea:focus {
+    outline: 1px solid #ab8f7a;
+    border-color: #ab8f7a;
+}
+fieldset {
+    border: none;
+    padding: 0;
+    grid-column: 1 / -1;
+}
+fieldset div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+input[type="radio"] {
+    margin-right: 0.5rem;
+    accent-color: #ab8f7a;
+}
+button {
+    width: 100%;
+    padding: 0.85rem;
+    border: 1px solid #ab8f7a;
+    background-color: #ab8f7a;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Open Sans', sans-serif;
+}
+button:hover {
+    background-color: #ffffff;
+    color: #ab8f7a;
+}

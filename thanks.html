@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci ! | Pauline & Arthur</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            text-align: center;
+        }
+        .container {
+            background: #ffffff;
+            padding: 2.5em;
+            border: 1px solid #e0e0e0;
+            width: 100%;
+            max-width: 650px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Merci !</h1>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const fullname = params.get('fullname');
+            const partnerFullname = params.get('partner_fullname');
+            const presence = params.get('presence');
+            const messageElement = document.getElementById('message');
+
+            let message = '';
+            let names = fullname;
+            if (partnerFullname) {
+                names += ` et ${partnerFullname}`;
+            }
+
+            if (presence === 'oui') {
+                message = `Cher ${names},<br><br>Merci beaucoup pour votre réponse. Nous sommes ravis d'apprendre que vous serez présents et nous avons hâte de célébrer ce grand jour avec vous !`;
+            } else if (presence === 'non') {
+                message = `Cher ${names},<br><br>Merci pour votre réponse. Nous sommes désolés d'apprendre que vous ne pourrez pas être des nôtres. Vous nous manquerez !`;
+            } else {
+                message = `Merci pour votre message !`;
+            }
+
+            messageElement.innerHTML = message;
+        });
+    </script>
+</body>
+</html>
