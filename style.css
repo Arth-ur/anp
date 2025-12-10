@@ -26,7 +26,7 @@ form {
 .form-title {
     grid-column: 1 / -1;
     text-align: center;
-    font-size: 29pt);
+    font-size: 29pt;
     font-weight: 400;
     margin-bottom: 0;
     font-family: 'Playfair Display', serif;

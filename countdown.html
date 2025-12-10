@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte à rebours pour l'Aventure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            background-image: url("https://images.unsplash.com/photo-1522278998365-38596b2b9966?q=80&w=2070&auto=format&fit=crop");
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(3px) brightness(0.7);
+            transform: scale(1.05);
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            margin-bottom: 40px;
+        }
+
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 120px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .time-box .label {
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .time-box {
+                min-width: 80px;
+                padding: 15px;
+            }
+            .time-box span {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-image"></div>
+
+    <div class="container">
+        <h1>L'aventure nous attend</h1>
+        <div id="countdown">
+            <div class="time-box">
+                <span id="days">0</span>
+                <div class="label">Jours</div>
+            </div>
+            <div class="time-box">
+                <span id="hours">0</span>
+                <div class="label">Heures</div>
+            </div>
+            <div class="time-box">
+                <span id="minutes">0</span>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-box">
+                <span id="seconds">0</span>
+                <div class="label">Secondes</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Définir la date cible
+        const countDownDate = new Date("May 2, 2026 14:00:00").getTime();
+
+        // Mettre à jour le compte à rebours chaque seconde
+        const x = setInterval(function() {
+
+            // Obtenir la date et l'heure actuelles
+            const now = new Date().getTime();
+
+            // Calculer la distance entre maintenant et la date cible
+            const distance = countDownDate - now;
+
+            // Calculs pour les jours, heures, minutes et secondes
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Afficher les résultats dans les éléments correspondants
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // Si le compte à rebours est terminé, afficher un message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<h2>L'aventure a commencé !</h2>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

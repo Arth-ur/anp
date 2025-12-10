@@ -1,70 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pauline & Arthur</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <form action="https://rsvp-post.pauline-et-arthur.fr/submit" method="POST">
-        <h1 class="form-title">Réponse souhaitée avant le 1er mars</h1>
-        <div>
-            <label for="fullname">Nom et prénom :</label>
-            <input type="text" id="fullname" name="fullname" required>
-        </div>
-        <div>
-            <label for="partner_fullname">Nom et prénom de votre moitié :</label>
-            <input type="text" id="partner_fullname" name="partner_fullname">
-        </div>
-        <fieldset>
-            <legend>Serez-vous des nôtres le 2 mai 2026 ?</legend>
-            <div>
-                <input type="radio" id="present_oui" name="presence" value="oui" required>
-                <label for="present_oui">Oui, avec joie !</label>
-            </div>
-            <div>
-                <input type="radio" id="present_non" name="presence" value="non">
-                <label for="present_non">Non, à notre grand regret.</label>
-            </div>
-        </fieldset>
-        <div class="full-width">
-            <label for="comment">Un commentaire, un mot doux ?</label>
-            <textarea id="comment" name="comment" rows="4"></textarea>
-        </div>
-        <div class="full-width">
-            <button type="submit">Envoyer</button>
-        </div>
-        <input type="hidden" name="_next" value="https://rsvp.pauline-et-arthur.fr/thanks.html?">
-        <input type="hidden" name="_captcha" value="false">
-        </form>
-        <input type="hidden" name="_captcha" value="false">
-    </form>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pauline & Arthur - 2 Mai 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function(e) {
-        const fullname = document.getElementById('fullname').value;
-        const partnerFullname = document.getElementById('partner_fullname').value;
-        const presence = document.querySelector('input[name="presence"]:checked')?.value || '';
-        const nextInput = document.querySelector('input[name="_next"]');
-
-        const baseUrl = "https://rsvp.pauline-et-arthur.fr/thanks.html?";
-        const params = new URLSearchParams();
-
-        if (fullname) {
-        params.append('fullname', fullname);
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'wedding-gold': '#D4AF37',
+              'wedding-sage': '#8DA399',
+              'wedding-cream': '#F9F7F2',
+              'wedding-charcoal': '#333333',
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Montserrat"', 'sans-serif'],
+            }
+          }
         }
-        if (partnerFullname) {
-        params.append('partner_fullname', partnerFullname);
-        }
-        if (presence) {
-        params.append('presence', presence);
-        }
-
-        nextInput.value = baseUrl + params.toString();
-    });
+      }
     </script>
-
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #F9F7F2;
+        color: #333333;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
