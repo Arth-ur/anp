@@ -1,6 +1,8 @@
 import React from 'react';
 import Section from './Section';
 import { Church, Wine, MapPin } from 'lucide-react';
+import egliseImage from '../eglise.jpg';
+import receptionImage from '../reception.jpg';
 
 const Schedule: React.FC = () => {
   return (
@@ -19,9 +21,9 @@ const Schedule: React.FC = () => {
           <p className="text-wedding-gold font-sans font-bold mb-4">14h00</p>
           <p className="text-gray-600 mb-1">Église Notre-Dame-des-Marais</p>
           <p className="text-gray-500 text-sm mb-4">Pl. Sadi Carnot, 72400 La Ferté-Bernard</p>
-          <a 
-            href="https://www.google.com/maps/search/?api=1&query=Notre-Dame-des-Marais+La+Ferté-Bernard" 
-            target="_blank" 
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Notre-Dame-des-Marais+La+Ferté-Bernard"
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-xs font-bold uppercase tracking-widest text-wedding-sage hover:text-wedding-gold mt-auto"
           >
@@ -31,12 +33,12 @@ const Schedule: React.FC = () => {
 
         {/* Photo Image Place holder */}
         <div className="hidden md:block h-80 rounded-sm overflow-hidden shadow-md">
-            <img src="https://picsum.photos/id/165/600/800" alt="Eglise" className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" />
+            <img src={egliseImage} alt="Eglise" className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" />
         </div>
 
         {/* Photo Image Place holder */}
         <div className="hidden md:block h-80 rounded-sm overflow-hidden shadow-md md:order-last">
-             <img src="https://picsum.photos/id/338/600/800" alt="Réception" className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" />
+             <img src={receptionImage} alt="Réception" className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" />
         </div>
 
         {/* Réception */}
@@ -48,9 +50,9 @@ const Schedule: React.FC = () => {
           <p className="text-wedding-gold font-sans font-bold mb-4">17h00</p>
           <p className="text-gray-600 mb-1">La Grange de Bresteau</p>
           <p className="text-gray-500 text-sm mb-4">31 Rue de la Gare, 72160 Beillé</p>
-          <a 
-            href="https://www.google.com/maps/search/?api=1&query=Grange+de+Bresteau+31+Rue+de+la+Gare+72160+Beillé" 
-            target="_blank" 
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Grange+de+Bresteau+31+Rue+de+la+Gare+72160+Beillé"
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-xs font-bold uppercase tracking-widest text-wedding-sage hover:text-wedding-gold mt-auto"
           >

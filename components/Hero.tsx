@@ -1,13 +1,14 @@
 import React from 'react';
+import heroImage from '../hero.jpg';
 
 const Hero: React.FC = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: 'url("https://picsum.photos/id/433/1920/1080")', 
+        style={{
+          backgroundImage: `url(${heroImage})`,
         }}
       >
         {/* Overlay for text readability */}
@@ -29,16 +30,16 @@ const Hero: React.FC = () => {
           La Ferté-Bernard & Beillé
         </p>
       </div>
-      
+
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg 
-          className="w-6 h-6 text-white" 
-          fill="none" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth="2" 
-          viewBox="0 0 24 24" 
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
           stroke="currentColor"
         >
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>

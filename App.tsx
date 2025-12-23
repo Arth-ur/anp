@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Schedule from './components/Schedule';
 import Info from './components/Info';
 import Rsvp from './components/Rsvp';
+// import randoImage from './JMJ.jpg';
 
 const App: React.FC = () => {
   return (
@@ -11,13 +12,13 @@ const App: React.FC = () => {
       <Navigation />
       <Hero />
       <Schedule />
-      
+
       {/* Visual breaker with another photo */}
-      <div 
+      {/* <div
         className="w-full h-64 md:h-96 bg-cover bg-center bg-fixed grayscale opacity-90"
-        style={{ backgroundImage: 'url("https://picsum.photos/id/238/1920/600")' }}
-      ></div>
-      
+        style={{ backgroundImage: `url(${randoImage})` }}
+      ></div> */}
+
       <Info />
       <Rsvp />
 
