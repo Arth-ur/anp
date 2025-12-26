@@ -20,6 +20,7 @@ const Navigation: React.FC = () => {
       href: '#infos',
       dropdown: [
         { name: 'Train', href: '#train' },
+        { name: 'La région', href: '#region' },
         { name: 'Covoiturage', href: '#covoiturage' },
         { name: 'Parking', href: '#parking' },
         { name: 'Whatsapp', href: '#whatsapp' },

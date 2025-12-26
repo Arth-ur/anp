@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Schedule from './components/Schedule';
@@ -7,6 +7,17 @@ import Rsvp from './components/Rsvp';
 // import randoImage from './JMJ.jpg';
 
 const App: React.FC = () => {
+  useEffect(() => {
+    if (window.location.hash === '#liste') {
+      const element = document.getElementById('liste');
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 500);
+      }
+    }
+  }, []);
+
   return (
     <div className="font-sans antialiased text-wedding-charcoal bg-wedding-cream min-h-screen">
       <Navigation />

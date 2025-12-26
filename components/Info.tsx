@@ -12,25 +12,81 @@ const Info: React.FC = () => {
       <div className="space-y-16">
 
         {/* Train Info */}
-        <div id="train" className="bg-white p-8 border-l-4 border-wedding-sage shadow-sm">
-          <div className="flex items-start mb-4">
-            <Train className="w-6 h-6 text-wedding-sage mr-3 mt-1" />
-            <h3 className="text-xl font-serif font-bold text-gray-800">Venir en Train</h3>
+        <div id="train" className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div className="bg-white p-8 border-l-4 border-wedding-sage shadow-sm h-full">
+            <div className="flex items-start mb-4">
+              <Train className="w-6 h-6 text-wedding-sage mr-3 mt-1" />
+              <h3 className="text-xl font-serif font-bold text-gray-800">Venir en Train</h3>
+            </div>
+            <p className="text-gray-600 mb-4 leading-relaxed">
+              Il est possible de se rendre en train à La Ferté-Bernard.<br/>
+              Le déplacement entre la cérémonie et la réception est également possible en train.<br/>
+              Il faut compter environ 50 minutes pour le trajet complet entre l'église et la Grange de Bresteau.
+            </p>
+            <ul className="list-disc list-inside text-gray-600 space-y-2 ml-2">
+              <li><strong>Gare de La Ferté-Bernard :</strong> 1,2km de l'église</li>
+              <li><strong>Gare de Connerré-Beillé :</strong> 1,6km de la Grange</li>
+              <li><strong>Départ navette train :</strong> 16h58 (Ferté-Bernard)</li>
+            </ul>
+            <div className="mt-4 pt-4 border-t border-wedding-sage/20">
+              <a href="https://ter-fiches-horaires.sncf.fr/publish/L23%20RV%20du%201er%20septembre%20au%2013%20d%C3%83%C2%A9embre%202025%20V1.pdf" target="_blank"  rel="noopener noreferrer" className="inline-flex items-center text-wedding-darkSage hover:underline font-medium">
+          <Download className="w-4 h-4 mr-2" />
+          Télécharger la fiche horaire
+              </a>
+            </div>
           </div>
-          <p className="text-gray-600 mb-4 leading-relaxed">
-            Il est possible de se rendre en train à La Ferté-Bernard. Le déplacement entre la cérémonie et la réception est également possible en train.
-            Il faut compter environ 50 minutes pour le trajet complet entre l'église et la Grange de Bresteau.
-          </p>
-          <ul className="list-disc list-inside text-gray-600 space-y-2 ml-2">
-            <li><strong>Gare de La Ferté-Bernard :</strong> 1,2km de l'église</li>
-            <li><strong>Gare de Connerré-Beillé :</strong> 1,6km de la Grange</li>
-            <li><strong>Départ navette train :</strong> 16h58 (Ferté-Bernard)</li>
-          </ul>
-          <div className="mt-4 pt-4 border-t border-wedding-sage/20">
-            <a href="https://ter-fiches-horaires.sncf.fr/publish/L23%20RV%20du%201er%20septembre%20au%2013%20d%C3%83%C2%A9embre%202025%20V1.pdf" target="_blank"  rel="noopener noreferrer" className="inline-flex items-center text-wedding-darkSage hover:underline font-medium">
-              <Download className="w-4 h-4 mr-2" />
-              Télécharger la fiche horaire
-            </a>
+          <div id="region" className="w-full h-full">
+            <div className="bg-white p-8 border-l-4 border-wedding-sage shadow-sm h-full">
+              <div className="flex items-start mb-4">
+                <Camera className="w-6 h-6 text-wedding-sage mr-3 mt-1" />
+                <h3 className="text-xl font-serif font-bold text-gray-800">À voir dans la région</h3>
+              </div>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Profitez de votre séjour pour découvrir les trésors de la Sarthe. Voici quelques suggestions de visites, avec itinéraire depuis la Grange de Bresteau.
+              </p>
+              <ul className="list-disc list-inside text-gray-600 space-y-2 ml-2">
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Cité+Plantagenêt,+Le+Mans" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>Le Vieux Mans (Cité Plantagenêt)</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Cathédrale+Saint-Julien+du+Mans" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>La Cathédrale Saint-Julien</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Circuit+des+24+Heures+du+Mans" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>Le circuit des 24 Heures du Mans</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Chateau+de+Montmirail" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>Le Château de Montmirail</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Abbaye+Royale+de+l'Épau" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>Musée de Champollion au Mans</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Chateau+des+ducs+de+Bretagne,+Nantes" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>Château des ducs de Bretagne à Nantes</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Cathédrale+Notre-Dame+de+Chartres" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>Cathédrale Notre-Dame de Chartres</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.google.com/maps/dir/La+Grange+de+Bresteau,+Beillé/Les+Caves+Ackerman" target="_blank" rel="noopener noreferrer" className="text-wedding-darkSage hover:underline">
+                    <strong>Les Caves Monumentales Ackerman</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
